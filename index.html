@@ -1,4 +1,8 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Marcus Tang</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Portfolio of Marcus Tang, artist and photographer.">
@@ -52,33 +56,74 @@ main:focus { outline: none; }
 @keyframes drift { to { transform: translateX(-50%); } }
 
 /* title screen */
-.home { min-height: 100svh; display: flex; flex-direction: column; background: var(--sky); }
+.home { background: var(--sky); }
+.home-first { min-height: calc(100svh - 72px); display: flex; flex-direction: column; }
 .home-top { flex: 1 1 auto; display: flex; align-items: flex-end; padding-block: clamp(40px, 9vh, 110px) clamp(20px, 4vh, 48px); }
+.home-top .in { width: 100%; }
 .kicker { margin: 0 0 18px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ocean); }
 .home h1 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(3.6rem, 14vw, 12.5rem); line-height: 0.95; letter-spacing: -0.03em; overflow-wrap: anywhere; text-wrap: balance; }
 .statement { max-width: 32ch; margin: clamp(18px, 3vh, 30px) 0 0; font-family: var(--display); font-size: clamp(1.25rem, 2.4vw, 1.8rem); line-height: 1.4; color: var(--ink-soft); text-wrap: pretty; }
-.home-mid { background: var(--navy); padding-block: clamp(4px, 1vh, 12px) clamp(20px, 4vh, 40px); }
+.home-mid { position: relative; z-index: 5; background: var(--navy); padding-block: clamp(4px, 1vh, 12px) clamp(20px, 4vh, 40px); }
 .doors { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(10px, 1.4vw, 18px); }
-.door { display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: clamp(120px, 19vh, 190px); padding: 18px 20px; border: 1.5px solid var(--sky2); color: var(--on-navy); transition: background 0.25s, color 0.25s, transform 0.25s; }
-.door:nth-child(odd) { background: var(--sky2); color: var(--navy); }
-.door .name { font-family: var(--display); font-size: clamp(1.7rem, 2.8vw, 2.4rem); line-height: 1.1; overflow-wrap: anywhere; }
+.door { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: clamp(120px, 19vh, 190px); padding: 18px 20px; border: 1.5px solid var(--sky2); color: var(--on-navy); transition: background 0.25s, color 0.25s, transform 0.25s; }
+.door-wrap { position: relative; display: flex; }
+.door-wrap:nth-child(odd) .door { background: var(--sky2); color: var(--navy); }
+.door .name { font-family: var(--display); font-size: clamp(1.4rem, 2vw, 1.9rem); line-height: 1.1; overflow-wrap: break-word; }
 .door .sub { display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; font-size: 0.85rem; line-height: 1.35; letter-spacing: 0.02em; }
 .door:hover { background: #fff; color: var(--navy); transform: translateY(-3px); }
 .home-mid a:focus-visible { outline-color: #fff; }
+.featured { background: var(--sky); padding-block: clamp(32px, 5vw, 72px) clamp(40px, 6vw, 88px); }
+.fhead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 32px; margin-bottom: clamp(24px, 4vw, 48px); }
+.fhead h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(2.4rem, 6vw, 4.6rem); line-height: 1; letter-spacing: -0.02em; }
+.fhead p { margin: 10px 0 0; max-width: 44ch; color: var(--ink-soft); }
+.flinks { display: flex; flex-wrap: wrap; gap: 8px 10px; }
+.fgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 36px); align-items: start; }
+.fcard { display: block; margin: 0; }
+.fcard .frame { display: block; overflow: hidden; background: var(--paper); }
+.fcard .ph { background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(79, 134, 207, 0.14) 14px 15px), var(--paper); }
+.fcard img { display: block; width: 100%; height: auto; }
+.fcap { margin-top: 12px; display: flex; flex-direction: column; gap: 2px; }
+.fcap .t { font-family: var(--display); font-size: 1.35rem; line-height: 1.2; }
+.fcap .m { font-size: 0.82rem; color: var(--ink-soft); }
+.home.reveal .fcard { animation: rise 0.4s ease backwards; animation-delay: calc(0.3s + var(--d, 0) * 40ms); }
 .home-bot { background: var(--sky); padding-block: 14px clamp(20px, 3vh, 32px); }
 .home-bot .in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; font-size: 0.88rem; color: var(--ink-soft); }
+.door:active { transform: scale(0.98); }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
-.home .kicker, .home h1, .home .statement, .door { animation: rise 0.8s ease backwards; }
-.home h1 { animation-delay: 0.08s; }
-.home .statement { animation-delay: 0.2s; }
-.door:nth-child(1) { animation-delay: 0.3s; }
-.door:nth-child(2) { animation-delay: 0.36s; }
-.door:nth-child(3) { animation-delay: 0.42s; }
-.door:nth-child(4) { animation-delay: 0.48s; }
-.door:nth-child(5) { animation-delay: 0.54s; }
+@keyframes fadein { from { opacity: 0; } }
+.home.reveal .kicker, .home.reveal h1, .home.reveal .statement, .home.reveal .door-wrap { animation: rise 0.36s ease backwards; }
+.home.reveal .kicker { animation-delay: 0.04s; }
+.home.reveal h1 { animation-delay: 0.08s; }
+.home.reveal .statement { animation-delay: 0.14s; }
+.home.reveal .door-wrap:nth-child(1) { animation-delay: 0.18s; }
+.home.reveal .door-wrap:nth-child(2) { animation-delay: 0.21s; }
+.home.reveal .door-wrap:nth-child(3) { animation-delay: 0.24s; }
+.home.reveal .door-wrap:nth-child(4) { animation-delay: 0.27s; }
+.home.reveal .door-wrap:nth-child(5) { animation-delay: 0.3s; }
+
+/* hover menus on the Artwork and Photography buttons (and in the top bar) */
+.menu, .nav-menu { position: absolute; z-index: 30; margin: 0; padding: 6px; list-style: none; background: var(--paper); border: 1.5px solid var(--sky2); box-shadow: 0 14px 30px rgba(11, 33, 80, 0.3); opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s; }
+.menu { bottom: 100%; left: 0; right: 0; transform: translateY(6px); }
+.door-wrap:has(.menu) .door:hover { transform: none; }
+.nav-menu { top: 100%; left: -12px; min-width: 210px; }
+.nav-item { position: relative; }
+.menu a, .nav .nav-menu a { display: block; padding: 10px 14px; border: 0; color: var(--navy); font-size: 0.92rem; line-height: 1.3; }
+.menu a:hover, .menu a:focus-visible, .nav .nav-menu a:hover, .nav .nav-menu a:focus-visible { background: var(--sky); color: var(--navy); outline: none; }
+@media (hover: hover) {
+  .door-wrap:hover .menu, .door-wrap:has(a:focus-visible) .menu, .nav-item:hover .nav-menu, .nav-item:has(a:focus-visible) .nav-menu { opacity: 1; visibility: visible; transform: none; }
+}
+@media (hover: none) { .menu, .nav-menu { display: none; } }
+
+/* page-change wipe: three wave-edged sheets sweep up over the page, the page swaps, then they sweep off */
+
+
+/* content rises in once the wipe lifts */
+#inner.reveal .titleband h1 { animation: rise 0.36s ease backwards; animation-delay: 0.05s; }
+#inner.reveal .lead { animation: rise 0.36s ease backwards; animation-delay: 0.1s; }
+#inner.reveal .work, #inner.reveal .entry, #inner.reveal .bio p, #inner.reveal .detailgrid > div, #inner.reveal .email, #inner.reveal .about > :first-child, #inner.reveal .reflect > div { animation: rise 0.36s ease backwards; animation-delay: calc(0.08s + var(--d, 0) * 30ms); }
 
 /* inner pages */
-.bar { background: var(--navy); color: var(--on-navy); }
+.bar { position: relative; z-index: 20; background: var(--navy); color: var(--on-navy); }
 .bar .in { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 24px; padding-block: 14px; }
 .mark { font-family: var(--display); font-size: 1.4rem; line-height: 1.2; }
 .nav { display: flex; flex-wrap: wrap; gap: 2px 22px; font-size: 0.92rem; }
@@ -94,8 +139,39 @@ main:focus { outline: none; }
 
 .gallery .in, .aboutband .in, .contactband .in { padding-block: clamp(16px, 3vw, 40px) clamp(32px, 6vw, 80px); }
 .grid { column-count: 3; column-gap: clamp(16px, 2.4vw, 36px); }
-.work { display: block; width: 100%; margin: 0 0 clamp(28px, 4vw, 52px); padding: 0; break-inside: avoid; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: zoom-in; }
-.work.slot { cursor: default; }
+.work { display: block; width: 100%; margin: 0 0 clamp(28px, 4vw, 52px); break-inside: avoid; }
+.frame-btn { display: block; width: 100%; padding: 0; background: none; border: 0; cursor: zoom-in; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-bottom: clamp(24px, 4vw, 44px); }
+.chip { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border: 1.5px solid var(--navy); font-size: 0.9rem; transition: background 0.2s, color 0.2s; }
+.chip:hover { background: var(--sky); }
+.chip[aria-current="page"] { background: var(--navy); color: var(--paper); }
+.timeline { --tlpad: clamp(30px, 6vw, 76px); position: relative; padding-left: var(--tlpad); }
+.timeline::before { content: ""; position: absolute; left: 6px; top: 22px; bottom: 0; width: 2px; background: linear-gradient(var(--blue), var(--sky2)); }
+.tl-node { position: relative; padding-bottom: clamp(48px, 8vw, 110px); }
+.tl-node:last-child { padding-bottom: 0; }
+.tl-dot { position: absolute; left: calc(-1 * var(--tlpad) - 1px); top: 0.55em; width: 16px; height: 16px; border-radius: 50%; background: var(--navy); box-shadow: 0 0 0 5px var(--sky2); }
+.tl-node.is-empty .tl-dot { background: var(--paper); border: 2px solid var(--blue); box-shadow: 0 0 0 5px var(--sky); }
+.tl-period { margin: 0 0 clamp(8px, 2vw, 20px); font-family: var(--display); font-weight: 400; font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1; letter-spacing: -0.02em; }
+.tl-medium { margin: clamp(24px, 4vw, 44px) 0 clamp(14px, 2vw, 24px); font-family: var(--display); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.1; color: var(--ocean); }
+.tl-soon { max-width: 520px; margin-top: 16px; color: var(--ink-soft); }
+.tl-soon p { margin: 0 0 14px; }
+.infogroup { padding-block: clamp(20px, 3vw, 36px); border-top: 1px solid var(--sky2); }
+.infogroup { border-top: 0; padding-block: 0; }
+.infogroup h2 { margin: 0 0 clamp(16px, 2.4vw, 28px); font-family: var(--display); font-weight: 400; font-size: clamp(1.8rem, 3.6vw, 2.6rem); line-height: 1.1; }
+.infogrid { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(36px, 5vw, 64px); }
+.entry { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: clamp(20px, 3.5vw, 48px); align-items: start; }
+.entry-media { width: 100%; max-width: 440px; }
+.entry h3 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(1.4rem, 2.4vw, 1.8rem); line-height: 1.2; }
+.entry .m { margin: 2px 0 0; font-size: 0.82rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.entry .n { max-width: 62ch; margin: 12px 0 0; font-size: 0.95rem; line-height: 1.65; }
+.more { margin-top: 8px; }
+.more summary { cursor: pointer; font-size: 0.85rem; color: var(--ocean); }
+.more summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.more p { max-width: 60ch; margin: 8px 0 0; font-size: 0.92rem; line-height: 1.6; }
+.reflect { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 4vw, 56px); margin-top: clamp(16px, 3vw, 40px); padding-top: clamp(32px, 5vw, 64px); border-top: 1px solid var(--sky2); }
+.reflect h2 { grid-column: 1 / -1; margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 4.6vw, 3.2rem); line-height: 1.1; }
+.reflect h3 { margin: 0 0 8px; font-size: 1rem; font-weight: 500; }
+.reflect p { max-width: 60ch; margin: 0; }
 .work .frame { display: block; overflow: hidden; background: var(--sky); }
 .work img { display: block; width: 100%; height: auto; transition: transform 0.5s ease; }
 .work:hover img { transform: scale(1.025); }
@@ -139,7 +215,8 @@ main:focus { outline: none; }
 .lb a:focus-visible, .lb button:focus-visible { outline-color: #fff; }
 .lb-bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.85rem; color: var(--on-navy-soft); font-variant-numeric: tabular-nums; }
 .lb-stage { display: flex; justify-content: center; align-items: center; min-height: 0; margin: 0; overflow: hidden; }
-.lb-stage img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.lb-stage img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; animation: fadein 0.35s ease; }
+.lb:not([hidden]) { animation: fadein 0.25s ease; }
 .lb-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 24px; }
 .lb-cap { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .lb-cap .t { font-weight: 500; }
@@ -147,42 +224,60 @@ main:focus { outline: none; }
 .lb-cap .n { max-width: 60ch; margin-top: 6px; font-size: 0.9rem; color: var(--on-navy); }
 .lb-nav { display: flex; gap: 10px; }
 
-@media (max-width: 1000px) {
+@media (max-width: 1120px) {
   .doors { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .door:nth-child(-n+3) { grid-column: span 2; }
-  .door:nth-child(n+4) { grid-column: span 3; }
+  .door-wrap:nth-child(-n+3) { grid-column: span 2; }
+  .door-wrap:nth-child(n+4) { grid-column: span 3; }
 }
-@media (max-width: 900px) { .grid { column-count: 2; } }
-@media (max-width: 760px) { .about { grid-template-columns: minmax(0, 1fr); } .about img, .about .ph { max-width: 420px; } }
+@media (max-width: 900px) { .grid { column-count: 2; } .fgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .entry { grid-template-columns: minmax(0, 1fr); } .about { grid-template-columns: minmax(0, 1fr); } .about img, .about .ph { max-width: 420px; } }
 @media (max-width: 560px) {
   .grid { column-count: 1; }
+  .fgrid { grid-template-columns: minmax(0, 1fr); }
   .nav { gap: 2px 16px; }
   .doors { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .door:nth-child(n) { grid-column: span 1; min-height: 110px; }
-  .door:nth-child(5) { grid-column: span 2; }
+  .door-wrap:nth-child(n) { grid-column: span 1; }
+  .door { min-height: 110px; }
+  .door-wrap:nth-child(5) { grid-column: span 2; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .waves svg, .home .kicker, .home h1, .home .statement, .door { animation: none; }
+  .waves svg, .home.reveal *, #inner.reveal *, .lb, .lb-stage img { animation: none !important; }
   * { transition: none !important; }
 }
 </style>
+</head>
+<body>
 
 <div class="home" id="home">
-  <div class="home-top">
-    <div class="in">
-      <p class="kicker" id="homeKicker"></p>
-      <h1 id="homeName"></h1>
-      <p class="statement" id="homeStatement"></p>
+  <div class="home-first">
+    <div class="home-top">
+      <div class="in">
+        <p class="kicker" id="homeKicker"></p>
+        <h1 id="homeName"></h1>
+        <p class="statement" id="homeStatement"></p>
+      </div>
     </div>
-  </div>
-  <div id="wavesA"></div>
-  <div class="home-mid">
-    <div class="in">
-      <nav class="doors" id="doors" aria-label="Enter the site"></nav>
+    <div id="wavesA"></div>
+    <div class="home-mid">
+      <div class="in">
+        <nav class="doors" id="doors" aria-label="Enter the site"></nav>
+      </div>
     </div>
+    <div id="wavesB"></div>
   </div>
-  <div id="wavesB"></div>
+  <section class="featured" id="featured" aria-labelledby="featuredTitle">
+    <div class="in">
+      <div class="fhead">
+        <div>
+          <h2 id="featuredTitle"></h2>
+          <p id="featuredLead"></p>
+        </div>
+        <div class="flinks" id="featuredLinks"></div>
+      </div>
+      <div class="fgrid" id="featuredGrid"></div>
+    </div>
+  </section>
   <div class="home-bot">
     <div class="in"><span id="homeCopy"></span><span id="homeMail"></span></div>
   </div>
@@ -238,36 +333,56 @@ const SITE = {
   // cat    = show works whose category matches
   // period = show works whose period matches (used by the 2025–2026 button)
   pages: {
-    artwork:     { label: "Artwork",     sub: "Drawing, print, sculpture", cat: "Artwork",     lead: "Select an image to view it larger." },
-    photography: { label: "Photography", sub: "Selected photographs",      cat: "Photography", lead: "Select an image to view it larger." },
-    "2025-2026": { label: "2025–2026",   sub: "Work from this year",       period: "2025–26",   lead: "Work made between 2025 and 2026." },
+    artwork:     { label: "Artwork",     sub: "Painting, sketch, sculpture", cat: "Artwork", lead: "Select an image to view it larger.",
+                   subs: [ { key: "painting", label: "Painting", type: "painting" }, { key: "abstract", label: "Abstract", type: "abstract" }, { key: "sketch", label: "Sketch & Drawing", type: "sketch" }, { key: "printmaking", label: "Printmaking", type: "printmaking" }, { key: "sculpture", label: "Sculpture", type: "sculpture" } ] },
+    photography: { label: "Photography", sub: "Selected photographs", cat: "Photography", lead: "Select an image to view it larger.",
+                   subs: [ { key: "black-and-white", label: "Black & White", type: "black-and-white" }, { key: "portrait", label: "Portrait", type: "portrait" }, { key: "nature", label: "Nature & Landscape", type: "nature" }, { key: "street", label: "Street", type: "street" }, { key: "architecture", label: "Architecture", type: "architecture" } ] },
+    timeline:    { label: "Timeline", sub: "2025–26 · 2026–27", lead: "My work year by year. New years will be added here.", timeline: [ { period: "2025–26", label: "2025–26", reflect: [{"q": "Which project was the most satisfying or successful?", "a": "I choose “Pattern / Repetition.” I used the art style of the artist Liv Lee as my reference. The soul of nature and pattern is what I really want to find, and it is what I want my art to be. The lemon and the character are the main things I want to show: the lemon provides natural growth and pattern, and the character presents bravery and strength. I think this is my most successful project because it totally shows my perseverance in art. Even though it isn't perfect or delicate, it expresses my aesthetic."}, {"q": "Which project was the most challenging?", "a": "The most complicated project for me was building the “Tree of Knowledge.” The clay, wire and tree leaves were hard to make perfect and in shape. During the process it was fun, and I got a lot of ideas from it. I spent one to two hours on each big element, like the carpet and the log, and even though it wasn't showing well, the theme is conveyed in this project."}] }, { period: "2026–27", label: "2026–27" } ] },
     about:       { label: "About",       sub: "Marcus Tang" },
     contact:     { label: "Contact",     sub: "Get in touch" }
   },
 
   // Works. An empty  file  shows a framed placeholder.
   // w and h set the shape of the frame (any two numbers with the right ratio).
-  // period: "2025–26" puts the piece on the 2025–2026 page too.
+  // period: "2025–26" puts the piece on that year of the Timeline page.
+  // To add a year later: add { period: "2027–28", label: "2027–28" } to the timeline list above.
   works: [
-    { file: "", w: 4.7, h: 7,   category: "Artwork", period: "2025–26", title: "The Block Print",        date: "September 2025", medium: "Block print",               size: "4.7 × 7 in" },
-    { file: "", w: 5.5, h: 7.8, category: "Artwork", period: "2025–26", title: "Ice Cream",              date: "October 2025",   medium: "Pencil on black paper",     size: "5.5 × 7.8 in" },
-    { file: "", w: 8.7, h: 12,  category: "Artwork", period: "2025–26", title: "Pattern / Repetition",   date: "December 2025",  medium: "Pencil and colored pencil", size: "8.7 × 12 in" },
-    { file: "", w: 4,   h: 3,   category: "Artwork", period: "2025–26", title: "Tree of Knowledge",      date: "",               medium: "Clay, wire and paper",      size: "" },
-    { file: "", w: 1,   h: 1,   category: "Artwork", period: "2025–26", title: "Loneness Landscape",     date: "",               medium: "Cardboard and glue",        size: "" },
-    { file: "", w: 3,   h: 4,   category: "Artwork", period: "2025–26", title: "CT Tower",               date: "",               medium: "Clay",                      size: "" },
-    { file: "", w: 3,   h: 2,   category: "Photography", period: "", title: "Photograph title", date: "Year", medium: "", size: "", exif: "" },
-    { file: "", w: 2,   h: 3,   category: "Photography", period: "", title: "Photograph title", date: "Year", medium: "", size: "", exif: "" },
-    { file: "", w: 1,   h: 1,   category: "Photography", period: "", title: "Photograph title", date: "Year", medium: "", size: "", exif: "" }
+    { file: "", w: 4.7, h: 7,   category: "Artwork", type: "printmaking", period: "2025–26", title: "The Block Print",        date: "September 2025", medium: "Block print",               size: "4.7 × 7 in", note: "I chose this scene because it shocked me when I saw it and was very beautiful: a streak of light breaking through the clouds on a long drive with my father. I wanted to record it as a physical piece. While carving, I first tried to leave some of the shadow all white, then thought that adding lines to the shadow would show the difference better. The carving was a challenge. The material is hard, the knife is very sharp, curved lines were difficult, and I had to keep every line distance consistent. If I did it again, I would pick a more complex scene and carve more carefully, because here my black areas ended up much larger than the white." },
+    { file: "", w: 5.5, h: 7.8, category: "Artwork", type: "sketch", period: "2025–26", title: "Ice Cream",              date: "October 2025",   medium: "Pencil on black paper",     size: "5.5 × 7.8 in", note: "I chose to draw an ice cream because it has many shaded parts, and it is one of my favorite foods. The light areas and small details like dots show the detail of the sketch, and the dark areas make the texture more realistic. There were a lot of problems. I had to erase many times in places that needed fine detail, which is hard to erase, so I had to be very careful and it took a lot of time. The shadows and shapes were hard to sketch perfectly. I used a white colored pencil to highlight the lines without covering the dark parts, and in some places I left out the line completely because the area was too dark, which made the ice cream look more natural. If I sketched it again, I would spend more time on the highlights and darks, restore more detail from the real picture, and work on the cone and background." },
+    { file: "", w: 8.7, h: 12,  category: "Artwork", type: "sketch", period: "2025–26", title: "Pattern / Repetition",   date: "December 2025",  medium: "Pencil and colored pencil", size: "8.7 × 12 in", note: "For this piece I returned to a topic I had used before: lemon leaves as random waves, with the color and fruit showing the natural growth of the plants. It references the artist Liv Lee, whose paintings I really like for their pattern and feel. The colorful background makes the figure in the middle stand out by comparison. I learned that complex patterns are tough to draw, and that simple ones don't show well, so I kept the leaves non-patterned to show natural growth and let the lemons carry the pattern. I outlined the lemons in pencil, which left black lines I couldn't remove when coloring, and the muscles of the figure were very hard to draw in detail. If I drew it again, I would draw every detail, use a paintbrush, and color the main character to match the background." },
+    { file: "", w: 4,   h: 3,   category: "Artwork", type: "sculpture", period: "2025–26", title: "Tree of Knowledge",      date: "",               medium: "Clay, wire and paper",      size: "" },
+    { file: "", w: 1,   h: 1,   category: "Artwork", type: "sculpture", period: "2025–26", title: "Loneness Landscape",     date: "",               medium: "Cardboard and glue",        size: "", note: "The topic is landscape and nature. The idea comes from a backpacking trip I took a month earlier along the Rogue River in Oregon, where the place I walked through was a really memorable scene. The island in the middle of the river references the rocky island in the Rogue River. I created many small mountains on a big hill, with lakes built on the mountain. I used only cardboard and glue, and each layer represents height, so the piece can be shown in three dimensions or flat. On the trip, the map was drawn in layers 5 meters apart, which also inspired the idea. The hardest part was cutting the board accurately, because cardboard is hard to cut and the glue was really hard to handle with small pieces." },
+    { file: "", w: 3,   h: 4,   category: "Artwork", type: "sculpture", period: "2025–26", title: "CT Tower",               date: "",               medium: "Clay",                      size: "", note: "I had seen human cooperation in ancient times and in Japanese art, and wondered if I could combine them. In this small piece I made the Tokyo Tower and a Japanese community. The texture uses different shapes and colors to express the different people and identities in the community. The water in the middle represents World War II and the financial crisis, but the Japanese are still cooperating and present their spirit of community. The hardest part was shaping the tower: the clay is very soft, so it can easily be smashed or bent, and it was hard to get the correct ratio of a real Tokyo Tower." },
+    { file: "", w: 3,   h: 2,   category: "Photography", type: "black-and-white", period: "", title: "Photograph title", date: "Year", medium: "", size: "", exif: "" },
+    { file: "", w: 2,   h: 3,   category: "Photography", type: "portrait", period: "", title: "Photograph title", date: "Year", medium: "", size: "", exif: "" },
+    { file: "", w: 1,   h: 1,   category: "Photography", type: "nature", period: "", title: "Photograph title", date: "Year", medium: "", size: "", exif: "" }
   ],
+
+  // Your favourite pieces, shown under the title buttons on the first page.
+  // To fill a frame: set file to the picture's file name and add a title and medium.
+  // link = where the piece lives (for example "#artwork-sketch"); leave "" for none.
+  // w and h set the shape of the frame.
+  featured: {
+    title: "Selected Works",
+    lead: "A few of the pieces I'm proudest of.",
+    items: [
+      { file: "", w: 4, h: 5, title: "", medium: "" },
+      { file: "", w: 4, h: 5, title: "", medium: "" },
+      { file: "", w: 4, h: 5, title: "", medium: "" },
+      { file: "", w: 4, h: 5, title: "", medium: "" },
+      { file: "", w: 4, h: 5, title: "", medium: "" },
+      { file: "", w: 4, h: 5, title: "", medium: "" }
+    ]
+  },
 
   about: {
     portrait: "",   // e.g. "portrait.jpg". Leave empty to show a frame.
     paragraphs: [
       "I'm Marcus Tang, an artist and photographer. I work across drawing, printmaking, sculpture and photography, and I like to take one idea, such as a pattern, a landscape or a community, and test it in different materials.",
-      "My work comes from the places I travel and the things I notice along the way: light breaking through clouds, the shape of an island in a river, patterns that repeat in nature."
+      "Recently I have made block prints, self-portraits, value shading studies and charcoal drawings, and I have learned to draw facial features and forms more believably. I have also explored identity and pattern. My skills have improved a lot, from simple drawings to more realistic and creative artwork."
     ],
     details: [
-      { label: "Mediums", items: ["Block printing", "Pencil and charcoal", "Clay and wire", "Cardboard", "Photography"] },
+      { label: "Mediums", items: ["Block printing", "Pencil and colored pencil", "Charcoal", "Clay and wire", "Cardboard", "Photography"] },
       { label: "Themes",  items: ["Pattern and repetition", "Landscape and nature", "Community and identity"] }
     ]
   },
@@ -365,16 +480,55 @@ const SITE = {
   $("#wavesB").replaceWith(W.navyToSky());
   $("#homeCopy").textContent = "© " + year + " " + SITE.name;
   $("#homeMail").textContent = SITE.contact.email || "";
+  function menuFor(k, cls) {
+    const p = pages[k];
+    if (!p.subs) return null;
+    return el("ul", { class: cls },
+      el("li", null, el("a", { href: "#" + k, text: "All " + p.label.toLowerCase() })),
+      ...p.subs.map((s) => el("li", null, el("a", { href: "#" + k + "-" + s.key, text: s.label })))
+    );
+  }
+
   $("#doors").replaceChildren(...keys.map((k) =>
-    el("a", { class: "door", href: "#" + k },
-      el("span", { class: "name", text: pages[k].label }),
-      el("span", { class: "sub" }, el("span", { text: pages[k].sub || "" }), el("span", { text: "→", "aria-hidden": "true" }))
+    el("div", { class: "door-wrap" },
+      el("a", { class: "door", href: "#" + k },
+        el("span", { class: "name", text: pages[k].label }),
+        el("span", { class: "sub" }, el("span", { text: pages[k].sub || "" }), el("span", { text: "→", "aria-hidden": "true" }))
+      ),
+      menuFor(k, "menu")
     )
   ));
 
+  /* ---------- selected works ---------- */
+  const F = SITE.featured;
+  $("#featuredTitle").textContent = F.title;
+  $("#featuredLead").textContent = F.lead;
+  $("#featuredLinks").replaceChildren(
+    el("a", { class: "btn", href: "#artwork", text: "All artwork →" }),
+    el("a", { class: "btn", href: "#photography", text: "All photography →" })
+  );
+  const fViewable = F.items.filter((w) => w.file);
+  $("#featuredGrid").replaceChildren(...F.items.map((w, i) => {
+    const label = w.title || "Favorite work " + (i + 1);
+    const frame = w.file
+      ? el("button", { type: "button", class: "frame-btn", "data-i": fViewable.indexOf(w), "aria-label": "View larger: " + label },
+          el("span", { class: "frame" }, el("img", { src: w.file, alt: w.alt || label, width: Math.round(w.w * 100), height: Math.round(w.h * 100), loading: "lazy", decoding: "async" })))
+      : el("span", { class: "frame" }, el("span", { class: "ph", role: "img", "aria-label": "Favorite work " + (i + 1) + ", image coming soon", style: "aspect-ratio:" + w.w + " / " + w.h }, el("span", { text: "Image coming soon" })));
+    return el("figure", { class: "fcard", style: "--d:" + i },
+      frame,
+      (w.title || w.medium) ? el("figcaption", { class: "fcap" }, w.title ? el("span", { class: "t", text: w.title }) : null, w.medium ? el("span", { class: "m", text: w.medium }) : null) : null
+    );
+  }));
+  $("#featuredGrid").addEventListener("click", (e) => {
+    const b = e.target.closest(".frame-btn");
+    if (b) openLb(fViewable, Number(b.getAttribute("data-i")), b);
+  });
+
   /* ---------- header nav ---------- */
   $("#markName").textContent = SITE.name;
-  $("#nav").replaceChildren(...keys.map((k) => el("a", { href: "#" + k, "data-k": k, text: pages[k].label })));
+  $("#nav").replaceChildren(...keys.map((k) =>
+    el("div", { class: "nav-item" }, el("a", { href: "#" + k, "data-k": k, text: pages[k].label }), menuFor(k, "nav-menu"))
+  ));
 
   /* ---------- shared page pieces ---------- */
   function titleBand(pg) {
@@ -399,20 +553,22 @@ const SITE = {
   }
 
   function labelFor(w) {
-    return el("span", { class: "label" }, el("span", { class: "t", text: w.title }), el("span", { class: "m", text: meta(w) }));
+    const out = [el("span", { class: "label" }, el("span", { class: "t", text: w.title }), el("span", { class: "m", text: meta(w) }))];
+    if (w.note) out.push(el("details", { class: "more" }, el("summary", { text: "About this piece" }), el("p", { text: w.note })));
+    return out;
   }
 
   /* ---------- gallery pages ---------- */
-  function workCard(w, i) {
+  function workCard(w, i, n) {
     const img = el("img", { src: w.file, alt: w.alt || w.title, loading: "lazy", decoding: "async" });
-    return el("button", { type: "button", class: "work", "data-i": i, "aria-label": "View larger: " + w.title },
-      el("span", { class: "frame" }, img),
+    return el("div", { class: "work", style: "--d:" + n },
+      el("button", { type: "button", class: "frame-btn", "data-i": i, "aria-label": "View larger: " + w.title }, el("span", { class: "frame" }, img)),
       labelFor(w)
     );
   }
 
-  function slotCard(w) {
-    return el("div", { class: "work slot" },
+  function slotCard(w, n) {
+    return el("div", { class: "work slot", style: "--d:" + n },
       el("span", { class: "frame" },
         el("span", { class: "ph", role: "img", "aria-label": "Image coming soon for " + w.title, style: "aspect-ratio:" + w.w + " / " + w.h },
           el("span", { text: "Image coming soon" }))
@@ -421,24 +577,103 @@ const SITE = {
     );
   }
 
-  function buildGallery(key) {
+  function reflection(pg) {
+    if (!pg.reflect || !pg.reflect.length) return null;
+    return el("div", { class: "reflect" },
+      el("h2", { text: "Reflection" }),
+      ...pg.reflect.map((r, i) => el("div", { style: "--d:" + i }, el("h3", { text: r.q }), el("p", { text: r.a })))
+    );
+  }
+
+  function mediaFor(w, idx) {
+    if (w.file) {
+      return el("button", { type: "button", class: "frame-btn", "data-i": idx, "aria-label": "View larger: " + w.title },
+        el("span", { class: "frame" }, el("img", { src: w.file, alt: w.alt || w.title, loading: "lazy", decoding: "async" })));
+    }
+    return el("span", { class: "frame" },
+      el("span", { class: "ph", role: "img", "aria-label": "Image coming soon for " + w.title, style: "aspect-ratio:" + w.w + " / " + w.h }, el("span", { text: "Image coming soon" })));
+  }
+
+  function chips(key, pg, sub) {
+    if (!pg.subs) return null;
+    const mk = (href, label, on) => el("a", { class: "chip", href, text: label, "aria-current": on ? "page" : null });
+    return el("nav", { class: "chips", "aria-label": "Filter " + pg.label },
+      mk("#" + key, "All", !sub),
+      ...pg.subs.map((s) => mk("#" + key + "-" + s.key, s.label, sub && sub.key === s.key))
+    );
+  }
+
+  /* timeline page: one node per year, work grouped by medium inside each year */
+  function buildTimeline(key) {
     const pg = pages[key];
-    const list = SITE.works.filter((w) => (pg.cat ? w.category === pg.cat : w.period === pg.period));
+    const label = {};
+    const order = [];
+    Object.keys(pages).forEach((k) => (pages[k].subs || []).forEach((s) => { label[s.type] = s.label; order.push(s.type); }));
+    const lists = pg.timeline.map((p) => SITE.works.filter((w) => w.period === p.period));
+    const viewable = [].concat(...lists).filter((w) => w.file);
+    const nodes = pg.timeline.map((p, pi) => {
+      const list = lists[pi];
+      const groups = order.filter((ty) => list.some((w) => w.type === ty));
+      const body = groups.map((ty, gi) =>
+        el("section", { class: "infogroup" },
+          el("h3", { class: "tl-medium", text: label[ty] }),
+          el("div", { class: "infogrid" },
+            ...list.filter((w) => w.type === ty).map((w, i) =>
+              el("article", { class: "entry", style: "--d:" + Math.min(i + gi, 8) },
+                el("div", { class: "entry-media" }, mediaFor(w, viewable.indexOf(w))),
+                el("div", { class: "entry-text" },
+                  el("h3", { text: w.title }),
+                  meta(w) ? el("p", { class: "m", text: meta(w) }) : null,
+                  w.note ? el("p", { class: "n", text: w.note }) : null
+                )
+              )
+            )
+          )
+        )
+      );
+      if (!body.length) body.push(
+        el("div", { class: "tl-soon" },
+          el("p", { text: "New work will be added here." }),
+          el("span", { class: "frame" }, el("span", { class: "ph", role: "img", "aria-label": "Image coming soon", style: "aspect-ratio: 16 / 9" }, el("span", { text: "Image coming soon" })))
+        )
+      );
+      return el("section", { class: "tl-node" + (list.length ? "" : " is-empty") },
+        el("span", { class: "tl-dot", "aria-hidden": "true" }),
+        el("h2", { class: "tl-period", text: p.label || p.period }),
+        ...body,
+        reflection(p)
+      );
+    });
+    const wrap = el("div", { class: "in" }, el("div", { class: "timeline" }, ...nodes));
+    wrap.addEventListener("click", (e) => {
+      const b = e.target.closest(".frame-btn");
+      if (b) openLb(viewable, Number(b.getAttribute("data-i")), b);
+    });
+    return [
+      titleBand(pg),
+      W.bandToPaper(),
+      el("section", { class: "gallery" }, wrap),
+      W.paperToNavy()
+    ];
+  }
+
+  function buildGallery(key, pg, sub) {
+    const list = SITE.works.filter((w) => (pg.cat ? w.category === pg.cat : w.period === pg.period) && (!sub || w.type === sub.type));
     const viewable = list.filter((w) => w.file);
     const grid = el("div", { class: "grid" });
     if (!list.length) {
       grid.append(el("p", { class: "empty", text: "Nothing here yet. New work is on the way." }));
     } else {
-      list.forEach((w) => grid.append(w.file ? workCard(w, viewable.indexOf(w)) : slotCard(w)));
+      list.forEach((w, n) => grid.append(w.file ? workCard(w, viewable.indexOf(w), Math.min(n, 8)) : slotCard(w, Math.min(n, 8))));
       grid.addEventListener("click", (e) => {
-        const b = e.target.closest(".work:not(.slot)");
+        const b = e.target.closest(".frame-btn");
         if (b) openLb(viewable, Number(b.getAttribute("data-i")), b);
       });
     }
     return [
-      titleBand(pg),
+      titleBand(sub ? { label: sub.label, lead: sub.lead || pg.lead } : pg),
       W.bandToPaper(),
-      el("section", { class: "gallery" }, el("div", { class: "in" }, grid)),
+      el("section", { class: "gallery" }, el("div", { class: "in" }, chips(key, pg, sub), grid)),
       W.paperToNavy()
     ];
   }
@@ -593,18 +828,32 @@ const SITE = {
   const inner = $("#inner");
   const page = $("#page");
 
+  function resolve(h) {
+    if (h === "2025-2026") h = "timeline";
+    if (pages[h]) return { key: h, pg: pages[h], sub: null };
+    for (const k of keys) {
+      const p = pages[k];
+      if (!p.subs) continue;
+      for (const s of p.subs) if (h === k + "-" + s.key) return { key: k, pg: p, sub: s };
+    }
+    return null;
+  }
+
   function route() {
     closeLb();
-    const key = location.hash.replace("#", "");
-    const pg = pages[key];
-    if (!pg) {
+    home.classList.remove("reveal");
+    inner.classList.remove("reveal");
+    const r = resolve(location.hash.replace("#", ""));
+    const pg = r && r.pg;
+    const key = r && r.key;
+    if (!r) {
       home.hidden = false;
       inner.hidden = true;
       document.title = SITE.name;
       window.scrollTo(0, 0);
       return;
     }
-    const nodes = key === "about" ? buildAbout() : key === "contact" ? buildContact() : buildGallery(key);
+    const nodes = key === "about" ? buildAbout() : key === "contact" ? buildContact() : pg.timeline ? buildTimeline(key) : buildGallery(key, pg, r.sub);
     page.replaceChildren(...nodes, footer(key));
     document.querySelectorAll("#nav a").forEach((a) => {
       if (a.getAttribute("data-k") === key) a.setAttribute("aria-current", "page");
@@ -612,14 +861,58 @@ const SITE = {
     });
     home.hidden = true;
     inner.hidden = false;
-    document.title = pg.label + " · " + SITE.name;
+    document.title = (r.sub ? r.sub.label + " · " : "") + pg.label + " · " + SITE.name;
     window.scrollTo(0, 0);
     page.focus({ preventScroll: true });
   }
 
-  window.addEventListener("hashchange", route);
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const current = () => (home.hidden ? inner : home);
+  function reveal(n) { n.classList.remove("reveal"); void n.offsetWidth; n.classList.add("reveal"); }
+
+  /* Page change, everywhere: the page swaps instantly (nothing fades, so nothing can flash), then the title
+     and the content glide in from the side, one after another. Going forward in the menu they come from the
+     right, going back from the left; inside a section the filters follow the same rule. */
+  const ORDER = ["home"].concat(keys);
+  const rank = () => {
+    const r = resolve(location.hash.replace("#", ""));
+    return { key: r ? r.key : "home", sub: r && r.sub ? r.pg.subs.indexOf(r.sub) : -1 };
+  };
+  let last = rank();
+  const TITLES = ".kicker, .home h1, .statement, .titleband .eyebrow, .titleband h1, .titleband .lead";
+  const BODY = ".chip, .door-wrap, .fcard, .work, .entry, .empty, .tl-period, .tl-medium, .tl-soon, .reflect, .about > *, .contactband .in > *, .detailband .in, .fhead";
+  function go() {
+    const now = rank();
+    const prev = last;
+    last = now;
+    let s;
+    if (now.key === prev.key && now.key !== "home") s = now.sub >= prev.sub ? 1 : -1;
+    else s = ORDER.indexOf(now.key) >= ORDER.indexOf(prev.key) ? 1 : -1;
+    if (now.key === "home") s = -1;
+    const root = document.documentElement;
+    document.getAnimations().forEach((x) => x.cancel());
+    root.style.scrollBehavior = "auto";
+    root.style.overflowX = "hidden";
+    route();
+    root.style.scrollBehavior = "";
+    if (reduced) { root.style.overflowX = ""; return; }
+    const dx = Math.min(window.innerWidth * 0.14, 180);
+    const slide = (nodes, from, base, step) => nodes.forEach((n, i) => n.animate(
+      [{ transform: from, opacity: 0 }, { transform: "none", opacity: 1 }],
+      { duration: 1200, delay: base + Math.min(i, 10) * step, easing: "cubic-bezier(0.16, 1, 0.3, 1)", fill: "backwards" }
+    ));
+    const cur = current();
+    slide(Array.from(cur.querySelectorAll(TITLES)), "translateX(" + (s * dx * 1.4) + "px)", 0, 80);
+    slide(Array.from(cur.querySelectorAll(BODY)), "translateX(" + (s * dx) + "px)", 140, 70);
+    clearTimeout(go.t);
+    go.t = setTimeout(() => { root.style.overflowX = ""; }, 2100);
+  }
+
+  window.addEventListener("hashchange", go);
   route();
+  reveal(current());
 })();
 </script>
 
-</body></html>
+</body>
+</html>

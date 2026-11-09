@@ -201,6 +201,15 @@ main:focus { outline: none; }
 .xthumb:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 .work .frame { position: relative; }
 .pcount { position: absolute; right: 10px; bottom: 10px; padding: 3px 10px; border-radius: 999px; background: rgba(11, 33, 80, 0.82); color: var(--paper); font-size: 0.75rem; letter-spacing: 0.04em; pointer-events: none; }
+.process { max-width: 62ch; margin-top: 22px; }
+.process h4 { margin: 0 0 12px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ocean); }
+.process ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+.process li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; align-items: start; }
+.process .pn { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: var(--paper); font-size: 0.82rem; font-variant-numeric: tabular-nums; }
+.process li:nth-child(even) .pn { background: var(--blue); }
+.process strong { display: block; font-weight: 500; line-height: 30px; }
+.process p { margin: 2px 0 0; font-size: 0.92rem; line-height: 1.6; }
+.more .process { margin-top: 14px; }
 .more { margin-top: 8px; }
 .more summary { cursor: pointer; font-size: 0.85rem; color: var(--ocean); }
 .more summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
@@ -388,7 +397,7 @@ const SITE = {
     { file: "block-print.jpg", w: 1247, h: 1600, category: "Artwork", type: "printmaking", period: "2025–26", title: "The Block Print",        date: "September 2025", medium: "Block print",               size: "4.7 × 7 in", note: "I chose this scene because it shocked me when I saw it and was very beautiful: a streak of light breaking through the clouds on a long drive with my father. I wanted to record it as a physical piece. While carving, I first tried to leave some of the shadow all white, then thought that adding lines to the shadow would show the difference better. The carving was a challenge. The material is hard, the knife is very sharp, curved lines were difficult, and I had to keep every line distance consistent. If I did it again, I would pick a more complex scene and carve more carefully, because here my black areas ended up much larger than the white." },
     { file: "ice-cream.jpg", w: 1200, h: 1600, category: "Artwork", type: "sketch", period: "2025–26", title: "Ice Cream",              date: "October 2025",   medium: "Pencil on black paper",     size: "5.5 × 7.8 in", note: "I chose to draw an ice cream because it has many shaded parts, and it is one of my favorite foods. The light areas and small details like dots show the detail of the sketch, and the dark areas make the texture more realistic. There were a lot of problems. I had to erase many times in places that needed fine detail, which is hard to erase, so I had to be very careful and it took a lot of time. The shadows and shapes were hard to sketch perfectly. I used a white colored pencil to highlight the lines without covering the dark parts, and in some places I left out the line completely because the area was too dark, which made the ice cream look more natural. If I sketched it again, I would spend more time on the highlights and darks, restore more detail from the real picture, and work on the cone and background." },
     { file: "pattern-repetition-1.jpg", w: 1309, h: 1600, more: ["pattern-repetition-2.jpg"], category: "Artwork", type: "sketch", period: "2025–26", title: "Pattern / Repetition",   date: "December 2025",  medium: "Pencil and colored pencil", size: "8.7 × 12 in", note: "For this piece I returned to a topic I had used before: lemon leaves as random waves, with the color and fruit showing the natural growth of the plants. It references the artist Liv Lee, whose paintings I really like for their pattern and feel. The colorful background makes the figure in the middle stand out by comparison. I learned that complex patterns are tough to draw, and that simple ones don't show well, so I kept the leaves non-patterned to show natural growth and let the lemons carry the pattern. I outlined the lemons in pencil, which left black lines I couldn't remove when coloring, and the muscles of the figure were very hard to draw in detail. If I drew it again, I would draw every detail, use a paintbrush, and color the main character to match the background." },
-    { file: "tree-of-knowledge.jpg", w: 1600, h: 1200, category: "Artwork", type: "sculpture", period: "2025–26", title: "Tree of Knowledge",      date: "",               medium: "Clay, wire and paper",      size: "" },
+    { file: "tree-of-knowledge.jpg", w: 1600, h: 1200, more: [{ file: "tree-of-knowledge-process.jpg", caption: "Development process" }, { file: "tree-of-knowledge-step-1.jpg", caption: "Step 1 · First draft" }, { file: "tree-of-knowledge-step-2.jpg", caption: "Step 2 · Improve" }, { file: "tree-of-knowledge-step-3.jpg", caption: "Step 3 · Crafting" }, { file: "tree-of-knowledge-step-4.jpg", caption: "Step 4 · Edit" }, { file: "tree-of-knowledge-step-5.jpg", caption: "Step 5 · Reflect" }], category: "Artwork", type: "sculpture", period: "2025–26", title: "Tree of Knowledge", date: "", medium: "Monster Clay, wire, foam board and paper", size: "", note: "A public art design: a reading space under a tree. I wanted to combine a peaceful, natural environment with education, to encourage more students to communicate and study together.", process: [{ t: "First draft", d: "I wanted to combine a peaceful, natural environment with education. I added a lot of extra design to make the space more engaging for people to talk to each other. The purpose of the design is to encourage more students to communicate and study." }, { t: "Improve", d: "My second draft shows the view from the back. I wrote the information for my draft and removed some design elements to make it look better. I added new elements, like a carpet, to balance the volume and decorate, along with more nature and a focus on study." }, { t: "Crafting", d: "I used Monster Clay, wire and foam board to build the basic model. I accidentally made the trunk arch, but it looks more natural. The bookshelf fits well into the trees. I wasn't careful enough with the clay, so it has some tears, but they look like bark texture, so I kept them." }, { t: "Edit", d: "During the process, the carpet and the tree leaves didn't show well and looked rough, but when I finished they had a very unique texture and didn't look bad. Some other places are rough too and hard to fix, but parts like the books look detailed from the side." }, { t: "Reflect", d: "My project has a lot of mistakes. I don't yet know how to make a perfect model to show my ideas, but this model conveys the idea I wanted. The books and carpet give it color and a unique design. If I had one more chance, I would use my experience to find a better method and make a model that shows my ideas better." }] },
     { file: "loneness-landscape-1.jpg", w: 1200, h: 1600, more: ["loneness-landscape-2.jpg", "loneness-landscape-3.jpg", "loneness-landscape-4.jpg", "loneness-landscape-5.jpg", "loneness-landscape-6.jpg"], category: "Artwork", type: "sculpture", period: "2025–26", title: "Loneness Landscape",     date: "",               medium: "Cardboard and glue",        size: "", note: "The topic is landscape and nature. The idea comes from a backpacking trip I took a month earlier along the Rogue River in Oregon, where the place I walked through was a really memorable scene. The island in the middle of the river references the rocky island in the Rogue River. I created many small mountains on a big hill, with lakes built on the mountain. I used only cardboard and glue, and each layer represents height, so the piece can be shown in three dimensions or flat. On the trip, the map was drawn in layers 5 meters apart, which also inspired the idea. The hardest part was cutting the board accurately, because cardboard is hard to cut and the glue was really hard to handle with small pieces." },
     { file: "ct-tower-1.jpg", w: 1600, h: 1200, more: ["ct-tower-2.jpg"], category: "Artwork", type: "sculpture", period: "2025–26", title: "CT Tower",               date: "",               medium: "Clay",                      size: "", note: "I had seen human cooperation in ancient times and in Japanese art, and wondered if I could combine them. In this small piece I made the Tokyo Tower and a Japanese community. The texture uses different shapes and colors to express the different people and identities in the community. The water in the middle represents World War II and the financial crisis, but the Japanese are still cooperating and present their spirit of community. The hardest part was shaping the tower: the clay is very soft, so it can easily be smashed or bent, and it was hard to get the correct ratio of a real Tokyo Tower." },
     { file: "", w: 3,   h: 2,   category: "Photography", type: "black-and-white", period: "", title: "Photograph title", date: "Year", medium: "", size: "", exif: "" },
@@ -592,7 +601,7 @@ const SITE = {
 
   function labelFor(w) {
     const out = [el("span", { class: "label" }, el("span", { class: "t", text: w.title }), el("span", { class: "m", text: meta(w) }))];
-    if (w.note) out.push(el("details", { class: "more" }, el("summary", { text: "About this piece" }), el("p", { text: w.note })));
+    if (w.note) out.push(el("details", { class: "more" }, el("summary", { text: "About this piece" }), el("p", { text: w.note }), processFor(w)));
     return out;
   }
 
@@ -626,9 +635,24 @@ const SITE = {
 
   /* every photo of one piece: the main one first, then the extras */
   function photosOf(w) {
-    return [w].concat((w.more || []).map((f, k) => Object.assign({}, w, { file: f, alt: w.title + ", photo " + (k + 2) })));
+    return [w].concat((w.more || []).map((f, k) => {
+      const x = typeof f === "string" ? { file: f } : f;
+      return Object.assign({}, w, { file: x.file, title: x.caption ? w.title + " · " + x.caption : w.title, alt: w.title + ", " + (x.caption || "photo " + (k + 2)) });
+    }));
   }
   const imgFor = (w) => el("img", { src: w.file, alt: w.alt || w.title, width: w.w, height: w.h, loading: "lazy", decoding: "async" });
+
+  /* the steps of how a piece was made */
+  function processFor(w) {
+    if (!w.process || !w.process.length) return null;
+    return el("div", { class: "process" },
+      el("h4", { text: "Development process" }),
+      el("ol", {}, ...w.process.map((s, i) => el("li", {},
+        el("span", { class: "pn", "aria-hidden": "true", text: String(i + 1) }),
+        el("div", {}, el("strong", { text: s.t }), el("p", { text: s.d }))
+      )))
+    );
+  }
 
   /* "Show more" for a piece with extra photos: the photos open up right under it, on the same page */
   function moreFor(w) {
@@ -747,6 +771,7 @@ const SITE = {
                   el("h3", { text: w.title }),
                   meta(w) ? el("p", { class: "m", text: meta(w) }) : null,
                   w.note ? el("p", { class: "n", text: w.note }) : null,
+                  processFor(w),
                   x.btn
                 ),
                 x.panel
